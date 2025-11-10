@@ -2,11 +2,12 @@
 <html lang="ru">
 <head>
     {% load static %}
+    {% load custom_filters %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoGalaxy — Интернет-магазин автомобилей</title>
     <link rel="stylesheet" href="{% static 'css/main_page.css' %}">
-    <script defer src="{% static 'js/main_page.js' %}"></script>
+    <script defer src="{% static 'cars/js/main_page.js' %}"></script>
 </head>
 <body>
     <header class="navbar">
@@ -14,14 +15,14 @@
         <nav>
             <ul>
                 <li><a href="#">Главная</a></li>
-                <li><a href="#">Каталог</a></li>
+                <li><a href="/catalog">Каталог</a></li>
                 <li><a href="#">О нас</a></li>
                 <li><a href="#">Контакты</a></li>
             </ul>
         </nav>
         <button class="btn-cart">🛒 Корзина</button>
     </header>
-    <section class='hero' style='background-image: url("{% static "img/hero.png" %}");'>
+    <section class='hero' style='background-image: url("{% static "cars/img/hero.png" %}");'>
         <div class="hero-content">
             <h1 class="fade-up">Найди свою мечту на колесах</h1>
             <p class="fade-up delay-1">Современные авто, мото и грузовики — в одном месте.</p>
@@ -29,28 +30,19 @@
         </div>
     </section>
     <section class="catalog">
-        <h2>Популярные модели</h2>
-        <div class="card-container">
-            <div class="card">
-                <img src="{% static 'img/tesla_s.jpg' %}" alt="Car 1">
-                <h3>Tesla Model S</h3>
-                <p>Электромобиль будущего</p>
-                <button class="btn-buy">Купить</button>
-            </div>
-            <div class="card">
-                <img src="{% static 'img/bmw-m4.jpg' %}" alt="Car 2">
-                <h3>BMW M4</h3>
-                <p>Мощь и стиль в каждом движении</p>
-                <button class="btn-buy">Купить</button>
-            </div>
-            <div class="card">
-                <img src="{% static 'img/mustang.jpg' %}" alt="Car 3">
-                <h3>Ford Mustang</h3>
-                <p>Легенда американских дорог</p>
-                <button class="btn-buy">Купить</button>
-            </div>
+    <h2>Популярные модели</h2>
+    <div class="card-container">
+        {% for car in cars %}
+        <div class="card">
+            <img src="{{ car.image.url }}" alt="{{ car.name }}">
+            <h3>{{ car.name }}</h3>
+            <p>{{ car.description }}</p>
+            <p>{{ car.price|space_separated }} ₽</p>
+            <button class="btn-buy">Купить</button>
         </div>
-    </section>
+        {% endfor %}
+    </div>
+</section>
     <footer>
         <p>© 2025 AutoGalaxy. Все права защищены.</p>
     </footer>

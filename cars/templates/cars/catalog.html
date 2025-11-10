@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    {% load custom_filters %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог — AutoGalaxy</title>
+    <link rel="stylesheet" href="{% static 'cars/css/catalog.css' %}">
+    <script defer src="{% static 'cars/js/catalog.js' %}"></script>
+</head>
+<body>
+<header class="navbar">
+    <div class="logo">AutoGalaxy</div>
+    <nav>
+        <ul>
+            <li><a href="{% url 'main' %}">Главная</a></li>
+            <li><a href="{% url 'catalog' %}">Каталог</a></li>
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Контакты</a></li>
+        </ul>
+    </nav>
+    <button class="btn-cart">🛒 Корзина</button>
+</header>
+
+<section class="catalog">
+    <h2>Каталог автомобилей</h2>
+    <div class="card-container">
+        {% for car in cars %}
+        <div class="card"
+             data-brand="{{ car.get_brand_display }}"
+             data-model="{{ car.model }}"
+             data-year="{{ car.year }}"
+             data-price="{{ car.price }}"
+             data-mileage="{{ car.mileage }}"
+             data-color="{{ car.color }}"
+             data-description="{{ car.description }}"
+             data-image="{{ car.image.url }}">
+            <img src="{{ car.image.url }}" alt="{{ car.model }}">
+            <h3>{{ car.get_brand_display }} {{ car.model }}</h3>
+            <p>{{ car.description|truncatechars:50 }}</p>
+            <p><strong>Цена: </strong>{{ car.price|space_separated }} ₽</p>
+            <button class="btn-buy">Купить</button>
+        </div>
+        {% empty %}
+        <p>Автомобилей пока нет.</p>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Модальное окно -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <img src="{% static 'cars/img/close.png' %}" alt="Закрыть" class="modal-close">
+        <img id="modal-image" src="" alt="">
+        <div class="modal-text">
+            <h2 id="modal-title"></h2>
+            <p><strong>Марка:</strong> <span id="modal-brand"></span></p>
+            <p><strong>Модель:</strong> <span id="modal-model"></span></p>
+            <p><strong>Год выпуска:</strong> <span id="modal-year"></span></p>
+            <p><strong>Пробег:</strong> <span id="modal-mileage"></span> км</p>
+            <p><strong>Цвет:</strong> <span id="modal-color"></span></p>
+            <p id="modal-description"></p>
+            <p><strong>Цена: </strong><span id="modal-price"></span> ₽</p>
+            <button class="btn-buy">Купить</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2025 AutoGalaxy. Все права защищены.</p>
+</footer>
+</body>
+</html>

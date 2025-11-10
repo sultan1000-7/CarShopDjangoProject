@@ -9,7 +9,6 @@
     <script defer src="{% static 'js/main_page.js' %}"></script>
 </head>
 <body>
-    <!-- Навигация -->
     <header class="navbar">
         <div class="logo">AutoGalaxy</div>
         <nav>
@@ -22,42 +21,36 @@
         </nav>
         <button class="btn-cart">🛒 Корзина</button>
     </header>
-
-    <!-- Герой -->
-    <section class="hero">
+    <section class='hero' style='background-image: url("{% static "img/hero.png" %}");'>
         <div class="hero-content">
             <h1 class="fade-up">Найди свою мечту на колесах</h1>
             <p class="fade-up delay-1">Современные авто, мото и грузовики — в одном месте.</p>
             <a href="#" class="btn-primary fade-up delay-2">Перейти в каталог</a>
         </div>
     </section>
-
-    <!-- Каталог -->
     <section class="catalog">
         <h2>Популярные модели</h2>
         <div class="card-container">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1511391036317-9af73a7fc5b4" alt="Car 1">
+                <img src="{% static 'img/tesla_s.jpg' %}" alt="Car 1">
                 <h3>Tesla Model S</h3>
                 <p>Электромобиль будущего</p>
                 <button class="btn-buy">Купить</button>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1605559424843-9f4aaf5a62d2" alt="Car 2">
+                <img src="{% static 'img/bmw-m4.jpg' %}" alt="Car 2">
                 <h3>BMW M4</h3>
                 <p>Мощь и стиль в каждом движении</p>
                 <button class="btn-buy">Купить</button>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70" alt="Car 3">
+                <img src="{% static 'img/mustang.jpg' %}" alt="Car 3">
                 <h3>Ford Mustang</h3>
                 <p>Легенда американских дорог</p>
                 <button class="btn-buy">Купить</button>
             </div>
         </div>
     </section>
-
-    <!-- Футер -->
     <footer>
         <p>© 2025 AutoGalaxy. Все права защищены.</p>
     </footer>

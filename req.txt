@@ -1,1 +1,3 @@
-djangо
+django
+psycopg2
+Pillow

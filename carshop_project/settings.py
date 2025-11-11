@@ -79,10 +79,9 @@ DATABASES = {
         'NAME': 'carshop_db',
         'USER': 'carshop_user',
         'PASSWORD': 'carshop123',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432',
     }
-
 }
 
 # Password validation

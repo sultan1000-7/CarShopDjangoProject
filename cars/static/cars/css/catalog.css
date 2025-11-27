@@ -59,6 +59,8 @@ body {
     width: 100%;
 }
 
+.navbar a.active::after { width: 100%; }
+
 .btn-cart {
     background: #00b3ff;
     border: none;
@@ -155,7 +157,7 @@ footer {
     }
 }
 
-/* Модальное окно */
+
 .modal {
     display: none;
     position: fixed;

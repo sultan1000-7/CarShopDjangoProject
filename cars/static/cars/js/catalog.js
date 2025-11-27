@@ -50,6 +50,12 @@ modal.addEventListener('click', e => {
     if (e.target === modal) closeModal();
 });
 
+modal.addEventListener('keypress', function (e) {
+		if(e.key === 'Escape'){
+            closeModal()
+        }
+	});
+
 // ==== Анимация появления карточек ====
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -74,3 +80,4 @@ if (cartBtn) {
 function formatPrice(price) {
     return Number(price).toLocaleString('ru-RU'); // '2 000 000'
 }
+

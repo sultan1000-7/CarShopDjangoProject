@@ -21,3 +21,14 @@ def main(request):
 def catalog(request):
     cars = Car.objects.all()
     return render(request, 'cars/catalog.html', {'cars': cars})
+
+@require_GET
+@csrf_protect
+def about(request):
+    return render(request, 'cars/about.html')
+
+
+@require_GET
+@csrf_protect
+def contacts(request):
+    return render(request, 'cars/contacts.html')

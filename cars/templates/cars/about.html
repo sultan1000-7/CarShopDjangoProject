@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас — AutoGalaxy</title>
+    <link rel="stylesheet" href="{% static 'cars/css/about.css' %}">
+    <script defer src="{% static 'cars/js/about.js' %}"></script>
+</head>
+<body>
+<header class="navbar">
+    <div class="logo">AutoGalaxy</div>
+    <nav>
+        <ul>
+            <li><a href="{% url 'main' %}">Главная</a></li>
+            <li><a href="{% url 'catalog' %}">Каталог</a></li>
+            <li><a class="active" href="#">О нас</a></li>
+            <li><a href="{% url 'contacts' %}">Контакты</a></li>
+        </ul>
+    </nav>
+    <button class="btn-cart">🛒 Корзина</button>
+</header>
+<section class="about-hero" style="background-image: url('{% static "cars/img/about_bg.avif" %}');">
+    <div class="about-hero-content fade-up">
+        <h1>Мы создаём путь к вашей мечте</h1>
+        <p class="delay-1">AutoGalaxy — лидирующий онлайн-магазин автомобилей с уникальным подходом к качеству и сервису.</p>
+    </div>
+</section>
+<section class="mission">
+    <h2 class="fade-up">Наша миссия</h2>
+    <p class="fade-up delay-1">
+        Мы стремимся сделать покупку автомобиля простой, безопасной и вдохновляющей.
+        AutoGalaxy создан для тех, кто ценит качество, стиль и уверенность в каждом километре пути.
+    </p>
+</section>
+<section class="advantages">
+    <h2 class="fade-up">Почему выбирают нас</h2>
+    <div class="adv-container">
+
+        <div class="adv-card fade-up delay-1">
+            <img src="{% static 'cars/img/icon_quality.png' %}" alt="quality">
+            <h3>Гарантированное качество</h3>
+            <p>Каждый автомобиль проходит строгую проверку и сертификацию.</p>
+        </div>
+
+        <div class="adv-card fade-up delay-2">
+            <img src="{% static 'cars/img/icon_speed.png' %}" alt="speed">
+            <h3>Быстрая покупка</h3>
+            <p>Современные технологии позволяют оформить сделку за считанные минуты.</p>
+        </div>
+
+        <div class="adv-card fade-up delay-3">
+            <img src="{% static 'cars/img/icon_support.png' %}" alt="support">
+            <h3>Поддержка 24/7</h3>
+            <p>Мы готовы помочь в любое время — просто свяжитесь с нами.</p>
+        </div>
+
+    </div>
+</section>
+<section class="team">
+    <h2 class="fade-up">Наша команда</h2>
+
+    <div class="team-container">
+        <div class="team-card fade-up delay-1">
+            <img src="{% static 'cars/img/team1.png' %}" alt="">
+            <h3>Алексей Петров</h3>
+            <p>Основатель и руководитель</p>
+        </div>
+
+        <div class="team-card fade-up delay-2">
+            <img src="{% static 'cars/img/team1.png' %}" alt="">
+            <h3>Мария Сергеевна</h3>
+            <p>Эксперт-консультант</p>
+        </div>
+
+        <div class="team-card fade-up delay-3">
+            <img src="{% static 'cars/img/team1.png' %}" alt="">
+            <h3>Илья Ковалёв</h3>
+            <p>Специалист по подбору авто</p>
+        </div>
+    </div>
+</section>
+<section class="cta fade-up">
+    <h2>Готовы найти свой идеальный автомобиль?</h2>
+    <a href="{% url 'catalog' %}" class="btn-primary">Перейти в каталог</a>
+</section>
+
+<footer>
+    <p>© 2025 AutoGalaxy. Все права защищены.</p>
+</footer>
+
+</body>
+</html>

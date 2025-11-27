@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — AutoGalaxy</title>
+
+    <link rel="stylesheet" href="{% static 'cars/css/contacts.css' %}">
+    <script defer src="{% static 'cars/js/contacts.js' %}"></script>
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">AutoGalaxy</div>
+    <nav>
+        <ul>
+            <li><a href="{% url 'main' %}">Главная</a></li>
+            <li><a href="{% url 'catalog' %}">Каталог</a></li>
+            <li><a href="{% url 'about' %}">О нас</a></li>
+            <li><a class="active" href="#">Контакты</a></li>
+        </ul>
+    </nav>
+    <button class="btn-cart">🛒 Корзина</button>
+</header>
+
+<section class="contact-hero" style="background-image: url('{% static "cars/img/contacts_bg.jpg" %}');">
+    <div class="contact-hero-content fade-up">
+        <h1>Свяжитесь с нами</h1>
+        <p class="delay-1">Мы всегда готовы помочь вам в выборе автомобиля мечты.</p>
+    </div>
+</section>
+
+<section class="contacts">
+    <h2 class="fade-up">Наши контактные данные</h2>
+    <div class="contacts-grid">
+
+        <div class="contact-card fade-up delay-1">
+            <img src="{% static 'cars/img/icon_phone.png' %}" alt="">
+            <h3>Телефон</h3>
+            <p>+7 (900) 123-45-67</p>
+        </div>
+
+        <div class="contact-card fade-up delay-2">
+            <img src="{% static 'cars/img/icon_mail.png' %}" alt="">
+            <h3>Email</h3>
+            <p>support@autogalaxy.ru</p>
+        </div>
+
+        <div class="contact-card fade-up delay-3">
+            <img src="{% static 'cars/img/icon_location.png' %}" alt="">
+            <h3>Адрес</h3>
+            <p>Москва, ул. Автомобильная 12</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="contact-form-section">
+    <h2 class="fade-up">Напишите нам</h2>
+
+    <form class="contact-form fade-up delay-1">
+        <div class="form-group">
+            <input type="text" placeholder="Ваше имя" required>
+        </div>
+        <div class="form-group">
+            <input type="email" placeholder="Ваш email" required>
+        </div>
+        <div class="form-group">
+            <textarea placeholder="Ваше сообщение" required></textarea>
+        </div>
+        <button class="btn-primary" type="submit">Отправить</button>
+    </form>
+</section>
+
+<section class="map-section fade-up">
+    <h2>Мы на карте</h2>
+    <div class="map-wrapper">
+        <iframe
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3A7e66c9..."
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 AutoGalaxy. Все права защищены.</p>
+</footer>
+
+</body>
+</html>
